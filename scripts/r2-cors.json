@@ -1,0 +1,12 @@
+[
+  {
+    "AllowedOrigins": [
+      "http://127.0.0.1:4173",
+      "https://your-frontend.pages.dev"
+    ],
+    "AllowedMethods": ["GET", "PUT", "HEAD"],
+    "AllowedHeaders": ["*"],
+    "ExposeHeaders": ["ETag", "Content-Length"],
+    "MaxAgeSeconds": 3600
+  }
+]

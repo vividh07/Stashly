@@ -1,0 +1,19 @@
+{
+  "name": "personal-vault",
+  "private": true,
+  "version": "1.0.0",
+  "packageManager": "pnpm@9.15.0",
+  "scripts": {
+    "dev": "pnpm -r --parallel --filter @vault/api --filter @vault/web run dev",
+    "dev:api": "pnpm --filter @vault/api dev",
+    "dev:web": "pnpm --filter @vault/web dev",
+    "build": "pnpm --filter @vault/shared build && pnpm --filter @vault/api build && pnpm --filter @vault/web build",
+    "start": "pnpm --filter @vault/api start",
+    "test": "pnpm --filter @vault/api test && pnpm --filter @vault/web test",
+    "test:api": "pnpm --filter @vault/api test",
+    "test:web": "pnpm --filter @vault/web test",
+    "lint": "pnpm -r run lint --if-present",
+    "typecheck": "pnpm -r run typecheck --if-present",
+    "seed": "pnpm --filter @vault/api seed"
+  }
+}

@@ -1,0 +1,31 @@
+name = "personal-vault-api"
+main = "src/worker.ts"
+# MongoDB Node driver needs node:net/tls (compat date >= 2025-03-20)
+compatibility_date = "2026-11-24"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+ALLOW_REGISTRATION = "false"
+STORAGE_QUOTA_BYTES = "10737418240"
+# Reflect request origin when set to * (see app CORS). Pages is same-origin via binding.
+CORS_ORIGIN = "*"
+APP_ORIGIN = "https://aether-vault-eag.pages.dev"
+SESSION_TTL_SECONDS = "18000"
+PRESIGNED_URL_TTL_SECONDS = "7200"
+R2_BUCKET_NAME = "personal-data"
+
+# Secrets (set via `wrangler secret put`):
+# MONGODB_URI
+# JWT_SECRET
+# CSRF_SECRET
+# R2_ACCESS_KEY_ID
+# R2_SECRET_ACCESS_KEY
+# CLOUDFLARE_ACCOUNT_ID
+# R2_ENDPOINT
+# BOOTSTRAP_ADMIN_EMAIL
+# BOOTSTRAP_ADMIN_PASSWORD
+# BOOTSTRAP_ADMIN_NAME
+
+[[r2_buckets]]
+binding = "VAULT_BUCKET"
+bucket_name = "personal-data"

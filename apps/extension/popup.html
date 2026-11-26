@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aether Vault</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <img src="icons/icon-192.png" width="28" height="28" alt="" />
+      <h1>Aether Vault</h1>
+    </header>
+
+    <label class="field">
+      <span>Vault origin</span>
+      <input id="origin" type="url" placeholder="http://127.0.0.1:4173" autocomplete="off" />
+    </label>
+
+    <p class="hint">
+      Sign in to your vault in this browser first so session cookies apply when saving.
+    </p>
+
+    <button id="save" type="button" class="primary">Save this page</button>
+
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+# Render Blueprint — one free Web Service for API + web UI
+# Dashboard: New → Blueprint → connect this repo
+services:
+  - type: web
+    name: aether-vault
+    runtime: node
+    plan: free
+    buildCommand: corepack enable && pnpm install && pnpm --filter @vault/shared build && pnpm --filter @vault/web build && pnpm --filter @vault/api build
+    startCommand: node apps/api/dist/node.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: ALLOW_REGISTRATION
+        value: "false"
+      - key: STORAGE_QUOTA_BYTES
+        value: "10737418240"
+      - key: SESSION_TTL_SECONDS
+        value: "18000"
+      - key: PRESIGNED_URL_TTL_SECONDS
+        value: "7200"
+      - key: R2_BUCKET_NAME
+        value: personal-data
+      # Set these in the Render dashboard (secrets):
+      # MONGODB_URI, JWT_SECRET, CSRF_SECRET
+      # R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, CLOUDFLARE_ACCOUNT_ID, R2_ENDPOINT
+      # APP_ORIGIN, CORS_ORIGIN  (https://YOUR-SERVICE.onrender.com)
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: CSRF_SECRET
+        sync: false
+      - key: R2_ACCESS_KEY_ID
+        sync: false
+      - key: R2_SECRET_ACCESS_KEY
+        sync: false
+      - key: CLOUDFLARE_ACCOUNT_ID
+        sync: false
+      - key: R2_ENDPOINT
+        sync: false
+      - key: APP_ORIGIN
+        sync: false
+      - key: CORS_ORIGIN
+        sync: false

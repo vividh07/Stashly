@@ -1,0 +1,6 @@
+{
+  "name": "@vault/extension",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Chrome MV3 extension for one-click capture to Aether Vault"
+}

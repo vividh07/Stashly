@@ -1,0 +1,8 @@
+name = "aether-vault"
+compatibility_date = "2024-12-01"
+pages_build_output_dir = "dist"
+
+# Same-origin /api → Worker (cookie auth + CSRF)
+[[services]]
+binding = "VAULT_API"
+service = "personal-vault-api"
